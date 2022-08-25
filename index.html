@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-div">
+      <h1>::: Rock :: Paper :: Scissors :::</h1>
+      <div class="inner-div">
+        <div class="left">
+          <img src="./paper.svg" alt="" class="left-img" />
+        </div>
+        <div class="center">
+          <h1 class="result">Result</h1>
+        </div>
+        <div class="right">
+          <img src="./scissor.svg" alt="" class="right-img" />
+        </div>
+      </div>
+      <div class="label">
+        <h3>You</h3>
+        <h3>Result</h3>
+        <h3>Mr. Goku</h3>
+      </div>
+      <div class="btns">
+        <button class="btn rock">Rock</button>
+        <button class="btn paper">Paper</button>
+        <button class="btn scissors">Scissors</button>
+      </div>
+    </div>
+    <script>
+      const moves = ["./rock.svg", "./paper.svg", "./scissor.svg"];
+
+      const btn = document.querySelectorAll(".btn");
+      const leftImg = document.querySelector(".left-img");
+      const result = document.querySelector(".result");
+      const rightImg = document.querySelector(".right-img");
+
+      for (let i = 0; i < moves.length; i++) {
+        btn[i].addEventListener("click", () => {
+          leftImg.style.width = "0%";
+          rightImg.style.width = "0%";
+          setTimeout(() => {
+            var random = Math.floor(Math.random() * 10) % 3;
+            leftImg.src = moves[i];
+            rightImg.src = moves[random];
+            leftImg.style.width = "100%";
+            rightImg.style.width = "100%";
+            if (i === random) {
+              result.innerHTML = "Match Tie";
+            } else if (i === 0 && random === 2) {
+              result.innerHTML = "You Win";
+            } else if (i === 1 && random === 0) {
+              result.innerHTML = "You Win";
+            } else if (i === 2 && random === 1) {
+              result.innerHTML = "You Win";
+            } else {
+              result.innerHTML = "You Lose";
+            }
+            result.style.scale = "1";
+          }, 500);
+        });
+      }
+    </script>
+  </body>
+</html>

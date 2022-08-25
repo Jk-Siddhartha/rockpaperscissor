@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.main-div {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-div h1 {
+  text-align: center;
+  padding: 2% 0;
+}
+
+.inner-div {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.label h3 {
+  text-align: center;
+  width: 25%;
+}
+
+.btns {
+  text-align: center;
+  padding: 4% 0;
+}
+
+.btn {
+  font-size: 18px;
+  padding: 1% 2%;
+  cursor: pointer;
+  background-color: blueviolet;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: cadetblue;
+}
+
+.left,
+.center,
+.right {
+  width: 25%;
+  height: 40vh;
+  -moz-box-shadow: inset 0 0 5px #000;
+  -webkit-box-shadow: inset 0 0 5px #000;
+  box-shadow: inset 0 0 5px #000;
+}
+
+.left img,
+.right img {
+  width: 0%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right img {
+  transform: scaleX(-1);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center h1 {
+  scale: 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+
+  .left,
+  .center,
+  .right {
+    height: 30vh;
+  }
+
+  .center {
+    font-size: 15px;
+  }
+}
